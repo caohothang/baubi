@@ -1,0 +1,293 @@
+* {
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+input {
+    -webkit-user-select: auto !important;
+    -khtml-user-select: auto !important;
+    -moz-user-select: auto !important;
+    -ms-user-select: auto !important;
+    user-select: auto !important;
+}
+
+body {
+    font-family: 'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+}
+
+#panel {
+    height: 100vh;
+}
+
+#ebook-wrapper {
+    margin: 20px;
+}
+
+/********************* HEADER *******************/
+/************************************************/
+#header-bar {
+    height: 60px;
+    background: #141466;
+    text-align: center;
+    color: #fff;
+    line-height: 60px;
+    font-weight: bold;
+    font-size: 20px;
+    text-transform: uppercase;
+    width: 100%;
+}
+
+#main-button {
+    position: absolute;
+    left: 8px;
+    top: 15px;
+}
+/********************* LEFT MENU *******************/
+/***********************************************************/
+
+.align-left {
+    text-align: left;
+}
+
+.slideout-menu {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 256px;
+    overflow-y: scroll;
+    z-index: 0;
+    display: none;
+}
+
+.slideout-menu-left {
+    left: 0;
+}
+
+.slideout-menu-right {
+    right: 0;
+}
+
+.slideout-panel {
+    position: relative;
+    z-index: 1;
+    will-change: transform;
+    background-color: #FFF; /* A background-color is required */
+}
+
+.slideout-open,
+.slideout-open body,
+.slideout-open .slideout-panel {
+    overflow: hidden;
+}
+
+    .slideout-open .slideout-menu {
+        display: block;
+    }
+
+.menu {
+    background-color: #1D1F20;
+    background-image: linear-gradient(145deg, #1D1F20, #404348);
+    padding: 0 10px;
+    text-align: left;
+    display: none;
+}
+
+    .menu a {
+        color: #fff;
+        text-decoration: none;
+    }
+
+        .menu a:hover {
+            text-decoration: none;
+        }
+
+.menu-header {
+    border-bottom: 1px solid #2a2d2f;
+    padding: 20px;
+    background-size: 32px;
+}
+
+.menu-header-title {
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    margin: 0;
+}
+
+.menu-section {
+    margin: 25px 0;
+}
+
+.menu-section-title {
+    text-transform: uppercase;
+    color: #fff;
+    font-weight: 200;
+    font-size: 15px;
+    letter-spacing: 1px;
+    padding: 8px 10px;
+    margin: 0;
+    background: #0a41cd;
+    border-radius: 5px;
+}
+
+.menu-section-list {
+    padding: 0;
+    margin: 10px 0;
+    list-style: none;
+}
+
+    .menu-section-list a {
+        display: block;
+        line-height: normal;
+        padding: 5px 10px;
+    }
+/********************* END LEFT MENU ***************/
+/******************************************************/
+
+.title-nhomsanpham {
+    font-size: 26px;
+    font-weight: bold;
+    color: #f50607;
+}
+
+.nhomodd .title-nhomsanpham {
+    left: 5px;
+    text-align: left;
+}
+
+.nhomeven .title-nhomsanpham {
+    right: 5px;
+    text-align: right;
+}
+
+.nhomodd .div-gradient {
+    background-color: #fff;
+    background: -moz-linear-gradient(left,#fff 0%,#ffffff00 100%);
+    background: -webkit-linear-gradient(left,#fff 0%,#ffffff00 100%);
+    background: linear-gradient(to right,#fff 0%,#ffffff00 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff',endColorstr='#ffffff',GradientType=1);
+}
+
+.nhomeven .div-gradient {
+    right: 0;
+    background-color: #fff;
+    background: -moz-linear-gradient(left,#ffffff00 0%,#fff 100%);
+    background: -webkit-linear-gradient(left,#ffffff00 0%,#fff 100%);
+    background: linear-gradient(to right,#ffffff00 0%,#fff 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff',endColorstr='#ffffff',GradientType=1);
+}
+
+
+.title-tintuc {
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    width: 100%;
+    position: absolute;
+    transform: translate(0, -100%);
+    word-wrap: break-word;
+    padding: 5px;
+    background-color: #fff;
+    background: -moz-linear-gradient(left,#fff 70%,#ffffff00 100%);
+    background: -webkit-linear-gradient(left,#fff 70%,#ffffff00 100%);
+    background: linear-gradient(to right,#fff 70%,#ffffff00 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff',endColorstr='#ffffff',GradientType=1);
+}
+
+.nguyeninput {
+    border: none;
+    border-bottom: 1px solid #e1342d;
+    background-color: unset;
+    color: #000;
+    font-size: 16px;
+    -webkit-box-shadow: unset;
+    box-shadow: unset;
+    -webkit-transition: unset;
+    -o-transition: unset;
+    transition: unset;
+    border-radius:unset;
+}
+
+.btnModal {
+    border-radius: 6px;
+    border: none;
+    padding: 5px 20px 6px;
+    line-height: 100%;
+    color: #fff;
+    background-color: #e1342d;
+}
+
+.heart {
+    color: #8b918b;
+    margin-right: 0 !important;
+    padding-right: 5px;
+}
+
+.clickheart {
+    color: #e1342d;
+}
+
+.LoadingParent {
+    position: fixed;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    z-index: 10000;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding-bottom: 160px;
+    padding-top: 160px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.LoadingOver {
+    position: fixed;
+    background: #fff;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    -webkit-backface-visibility: hidden;
+    -webkit-animation: ngdialog-fadein .5s;
+    animation: ngdialog-fadein .5s;
+}
+
+.LoadingContent {
+    -webkit-animation: ngdialog-flyin .5s;
+    animation: ngdialog-flyin .5s;
+    background: #fff;
+    border-radius: 5px;
+    color: #444;
+    font-family: 'Helvetica',sans-serif;
+    font-size: 1.1em;
+    line-height: 1.5em;
+    margin: 0 auto;
+    max-width: 100%;
+    padding: 1em;
+    position: relative;
+    width: 100%;
+    text-align: center;
+}
+
+.fa-spin {
+    font-size: 20px;
+}
+
+.list-group-item {
+    border-radius: unset !important;
+    border-left: none !important;
+    border-right: none !important;
+}
+
+    .list-group-item:first-child {
+        border-top: none !important;
+    }

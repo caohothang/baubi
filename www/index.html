@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+
+    <!-- STYLES -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/ngDialog.min.css">
+    <link rel="stylesheet" href="css/ngDialog-theme-default.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <title>Bí Bầu App</title>
+</head>
+<body>
+    <!-- MENU PAGES -->
+    <div class="container-fluid">
+        <div ng-view></div>
+    </div>
+    <!--  REQUIRED SCRIPTS -->
+    <script type="text/javascript" src="cordova.js"></script>
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-route.min.js"></script>
+    <script src="js/angular-touch.js"></script>
+    <script src="js/angular-cookies.js"></script>
+    <script src="js/ngDialog.min.js"></script>
+    <script src="js/slideout.min.js"></script>
+    <script src="js/angularjs-social-login.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/routes.js"></script>
+    <script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '588779811479123',
+      cookie     : true,
+      xfbml      : true,
+      version    : 'v3.0'
+    });
+
+    FB.AppEvents.logPageView();
+
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+</body>
+</html>
