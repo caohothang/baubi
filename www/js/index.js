@@ -3,7 +3,7 @@ var bibauapp = angular.module('bibauapp', ['ngRoute', 'ngTouch', 'ngCookies', 'n
 bibauapp.config(function(socialProvider){
 	//socialProvider.setGoogleKey("YOUR GOOGLE CLIENT ID");
   //socialProvider.setLinkedInKey("YOUR LINKEDIN CLIENT ID");
-  socialProvider.setFbKey({appId: "588779811479123", apiVersion: "v3.0"});
+  socialProvider.setFbKey({appId: "1125067330874610", apiVersion: "v3.0"});
 });
 //once the html is ready we attach the angularjs directive app into the body
 angular.element(document).ready(function () {
@@ -15,7 +15,11 @@ angular.element(document).ready(function () {
         angular.bootstrap(document.body, ['bibauapp']);
     }
 });
-
+function checkLoginState() {
+  FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+  });
+}
 
 var Base64 = {
 
@@ -115,9 +119,7 @@ bibauapp.controller('introController', function ($scope, $rootScope, $location, 
     }, function (error) {
 
     });
-    $rootScope.$on('event:social-sign-in-success', function(event, userDetails){
-      console.log(userDetails);
-    })
+
     function animateMe(myObject, animateType, duration) {
         $(myObject).addClass("animated " + animateType).css("animation-delay", duration + "s");
     }
@@ -132,6 +134,21 @@ bibauapp.controller('loginController', ['$scope', '$location', '$timeout', '$htt
         $rootScope.globals = $cookies.getObject('globals');
         $location.path('nhomsanpham/');
     }
+
+    $rootScope.$on('event:social-sign-in-success', function(event, userDetails){
+      $http({
+          method: 'POST',
+          url: 'http://test.toppion.com/api/users',
+          params: userDetails
+      }).then(function (data) {
+          if (data.data !== null ) {
+              $location.path('nhomsanpham/');
+          }
+      }, function (error) {
+
+      });
+    })
+
     $scope.submitLogin = function () {
         if ($scope.username == null || $scope.username == '') {
             $scope.error = "Vui lòng nhập Địa chỉ Email/số điện thoại";
