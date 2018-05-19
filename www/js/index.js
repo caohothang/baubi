@@ -128,11 +128,22 @@ bibauapp.controller('introController', function ($scope, $rootScope, $location, 
     animateMe("#box-content", "fadeIn", 0.1);
 
 });
-bibauapp.controller('loginController', ['$scope', '$location', '$timeout', '$http', '$rootScope', '$cookies', 'ngDialog', function ($scope, $location, $timeout, $http, $rootScope, $cookies, ngDialog) {
+bibauapp.controller('loginController', ['$scope', '$location', '$timeout', '$http', '$cordovaOauth', '$rootScope', '$cookies', 'ngDialog', function ($scope, $location, $timeout, $http, $cordovaOauth, $rootScope, $cookies, ngDialog) {
 
     if ($cookies.get('globals') != null) {
         $rootScope.globals = $cookies.getObject('globals');
         $location.path('nhomsanpham/');
+    }
+
+    $scope.login = function () {
+        alert(window.cordovaOauth);
+        $scope.facebookLogin(window.cordovaOauth, window.http);
+    }
+
+    $scope.facebookLogin = function($cordovaOauth, $http) {
+        $cordovaOauth.facebook("1125067330874610", ["email", "public_profile"], {redirect_uri: "http://app.test/"}).then(function (result) {
+            console.log(result);
+        });
     }
 
     $rootScope.$on('event:social-sign-in-success', function(event, userDetails){
