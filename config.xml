@@ -99,7 +99,7 @@
     <plugin name="cordova-plugin-x-socialsharing" spec="^5.4.0" />
     <plugin name="cordova-plugin-inappbrowser" spec="^3.0.0" />
     <plugin name="cordova-plugin-device" spec="~2.0.2" />
-    <engine name="android" spec="~7.0.0" />
+    <engine name="android" spec="~7.1.0" />
     <plugin name="cordova-plugin-facebook4" spec="^2.1.0">
         <variable name="APP_ID" value="1125067330874610" />
         <variable name="APP_NAME" value="bibau" />
