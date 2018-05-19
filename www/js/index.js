@@ -1,9 +1,9 @@
 ﻿//create our angularjs app
 var bibauapp = angular.module('bibauapp', ['ngRoute', 'ngTouch', 'ngCookies', 'ngDialog', 'angularLazyImg']);
-bibauapp.config(function(socialProvider, lazyImgConfigProvider){
+bibauapp.config(function(lazyImgConfigProvider){
 	//socialProvider.setGoogleKey("YOUR GOOGLE CLIENT ID");
   //socialProvider.setLinkedInKey("YOUR LINKEDIN CLIENT ID");
-  socialProvider.setFbKey({appId: "1125067330874610", apiVersion: "v3.0"});
+  // socialProvider.setFbKey({appId: "1125067330874610", apiVersion: "v3.0"});
   var scrollable = document.querySelector('#scrollable');
  lazyImgConfigProvider.setOptions({
    offset: 100, // how early you want to load image (default = 100)
