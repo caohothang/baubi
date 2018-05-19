@@ -136,30 +136,6 @@ bibauapp.controller('introController', function ($scope, $rootScope, $location, 
     animateMe("#box-content", "fadeIn", 0.1);
 
 });
-function displayData($http, access_token){
-    $http.get("https://graph.facebook.com/v2.2/me", {params: {access_token: access_token, fields: "name,gender,location,picture,email", format: "json" }}).then(function(result){
-        var userinfo = result.data;
-        $http({
-            method: 'POST',
-            url: 'http://test.toppion.com/api/loginface',
-            params: {
-                email: userinfo.email,
-                imageUrl: userinfo.picture.data.url,
-                name: userinfo.name,
-                token: access_token,
-                uid: userinfo.id
-            }
-        }).then(function (data) {
-            if (data.data !== null) {
-                SetCredentials(data.data, $scope.username, $scope.password);
-                $location.path('nhomsanpham');
-            }
-        }, function (error) {
-
-        });
-
-    });
-}
 bibauapp.controller('loginController', ['$scope', '$location', '$timeout', '$http', '$cordovaOauth', '$rootScope', '$cookies', 'ngDialog', function ($scope, $location, $timeout, $http, $cordovaOauth, $rootScope, $cookies, ngDialog) {
 
     if ($cookies.get('globals') != null) {
@@ -178,29 +154,33 @@ $http({
     $scope.login = function () {
         $scope.facebookLogin($cordovaOauth, $http);
     };
+    $scope.displayData = function($http, access_token){
+        $http.get("https://graph.facebook.com/v2.2/me", {params: {access_token: access_token, fields: "name,gender,location,picture,email", format: "json" }}).then(function(result){
+            var userinfo = result.data;
+            $http({
+                method: 'POST',
+                url: 'http://test.toppion.com/api/loginface',
+                params: {
+                    email: userinfo.email,
+                    imageUrl: userinfo.picture.data.url,
+                    name: userinfo.name,
+                    token: access_token,
+                    uid: userinfo.id
+                }
+            }).then(function (data) {
+                if (data.data !== null) {
+                    SetCredentials(data.data, $scope.username, $scope.password);
+                    $location.path('nhomsanpham');
+                }
+            }, function (error) {
 
+            });
+
+        });
+    }
     $scope.facebookLogin = function($cordovaOauth, $http) {
         $cordovaOauth.facebook("1125067330874610", ["email", "public_profile"], {redirect_uri: "http://app.test/www/index.html"}).then(function (result) {
-            displayData($http, result.access_token);
-            // $http({
-            //     method: 'POST',
-            //     url: 'http://test.toppion.com/api/loginface',
-            //     params: {
-            //         email: userDetails.email,
-            //         imageUrl: userDetails.imageUrl,
-            //         name: userDetails.name,
-            //         token: userDetails.token,
-            //         uid: userDetails.uid
-            //     }
-            // }).then(function (data) {
-            //     if (data.data !== null) {
-            //         SetCredentials(data.data, $scope.username, $scope.password);
-            //         $location.path('nhomsanpham');
-            //     }
-            // }, function (error) {
-            //
-            // });
-
+            $scope.displayData($http, result.access_token);
         });
     };
 
