@@ -145,12 +145,11 @@ bibauapp.controller('loginController', ['$scope', '$location', '$timeout', '$htt
     }
 
     $scope.login = function () {
-        alert($cordovaOauth);
-        $scope.facebookLogin($cordovaOauth, window.http);
+        $scope.facebookLogin($cordovaOauth, $http);
     };
 
     $scope.facebookLogin = function($cordovaOauth, $http) {
-        $cordovaOauth.facebook("1125067330874610", ["email", "public_profile"], {redirect_uri: "http://app.test/"}).then(function (result) {
+        $cordovaOauth.facebook("1125067330874610", ["email", "public_profile"], {redirect_uri: "http://app.test/www/index.html"}).then(function (result) {
             console.log(result);
         });
     };
