@@ -145,8 +145,8 @@ bibauapp.controller('loginController', ['$scope', '$location', '$timeout', '$htt
     }
 
     $scope.login = function () {
-        alert(window.cordovaOauth);
-        $scope.facebookLogin(window.cordovaOauth, window.http);
+        alert($cordovaOauth);
+        $scope.facebookLogin($cordovaOauth, window.http);
     };
 
     $scope.facebookLogin = function($cordovaOauth, $http) {
