@@ -6,6 +6,7 @@
         "cordova-android": "5.2.1",
         "cordova-ios": "4.2.0",
         "cordova-plugin-facebook4": "^2.1.0",
+        "cordova-plugin-inappbrowser": "^3.0.0",
         "cordova-plugin-x-socialsharing": "^5.4.0",
         "cordova-windows": "4.4.2",
         "phonegap-facebook-plugin": "^0.12.0"
@@ -17,7 +18,8 @@
                 "APP_ID": "1125067330874610",
                 "APP_NAME": "demo",
                 "ANDROID_SDK_VERSION": "4.+"
-            }
+            },
+            "cordova-plugin-inappbrowser": {}
         },
         "platforms": [
             "android",
