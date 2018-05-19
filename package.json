@@ -3,5 +3,19 @@
     "version": "1.0.0",
     "private": true,
     "dependencies": {
+        "cordova-plugin-x-socialsharing": "^5.4.0",
+        "cordova-android": "5.2.1",
+        "cordova-ios": "4.2.0",
+        "cordova-windows": "4.4.2"
+    },
+    "cordova": {
+        "plugins": {
+            "cordova-plugin-x-socialsharing": {}
+        },
+        "platforms": [
+            "android",
+            "ios",
+            "windows"
+        ]
     }
 }

@@ -1,3 +1,7 @@
+<div ng-show="loading" class="LoadingParent">
+    <div class="LoadingOver"></div>
+    <div class="LoadingContent"><i class="fa fa-spinner fa-spin"></i><br />Đang tải...</div>
+</div>
 ﻿<div class="row box-content" style="height:20px;width:100%;position: fixed;top: 0;background: #fff;z-index: 1000;">
 
 </div>
@@ -11,7 +15,7 @@
 
     <div class="row" ng-repeat="nhom in nhomsanpham" style="border-top: 1px solid #d6d2d4;">
         <div ng-click="togglenhomcap2(nhom.ID)" class="col-xl-12 nhom-{{nhom.ID}}" ng-class-odd="'nhomodd'" ng-class-even="'nhomeven'" style="padding:0;position:relative;">
-            <img style="width:100%;" ng-src="{{nhom.Hinh}}">
+            <img style="width:100%;" 	bn-lazy-src="{{nhom.Hinh}}"  >
             <div class="div-gradient" style="position: absolute;width:40%;height:100%;top:0;"></div>
             <div class="title-nhomsanpham" style="position: absolute;top: 50%;transform: translate(0, -50%);" ng-bind-html="get_pre(nhom.Ten)">
             </div>

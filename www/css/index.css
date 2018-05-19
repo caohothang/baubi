@@ -30,7 +30,12 @@ body {
 #ebook-wrapper {
     margin: 20px;
 }
-
+img[ bn-lazy-src ] {
+  background-image: url( "../images/loading.gif" ) ;
+  background-repeat: no-repeat;
+  height:100%;
+  width:100%;
+}
 /********************* HEADER *******************/
 /************************************************/
 #header-bar {
