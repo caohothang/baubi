@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <widget defaultlocale="vi-VN" id="io.cordova.myapp5663f2" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:vs="http://schemas.microsoft.com/appx/2014/htmlapps">
     <name>Bí Bầu</name>
     <description>A blank project that uses Apache Cordova to help you build an app that targets multiple mobile platforms: Android, iOS, and the Windows Universal Platform.</description>
@@ -6,7 +6,6 @@
     <allow-navigation href="http://*/*" />
     <vs:template-name>BlankJS</vs:template-name>
     <vs:toolsetVersion>6.3.1</vs:toolsetVersion>
-    <engine name="android" spec="5.2.1" />
     <engine name="ios" spec="4.2.0" />
     <engine name="windows" spec="4.4.2" />
     <content src="index.html" />
@@ -97,12 +96,12 @@
     <preference name="DisallowOverscroll" value="true" />
     <preference name="BackgroundColor" value="0xffffff00" />
     <plugin name="cordova-plugin-camera" spec="~2.4.1" />
+    <plugin name="cordova-plugin-inappbrowser" spec="^3.0.0" />
+    <plugin name="cordova-plugin-device" spec="~2.0.2" />
+    <engine name="android" spec="~5.2.1" />
     <plugin name="cordova-plugin-facebook4" spec="^2.1.0">
         <variable name="APP_ID" value="1125067330874610" />
-        <variable name="APP_NAME" value="baubi" />
-       
+        <variable name="APP_NAME" value="bibau" />
+        <variable name="ANDROID_SDK_VERSION" value="4.+" />
     </plugin>
-    <plugin name="cordova-plugin-inappbrowser" spec="^3.0.0" />
-	 <plugin name="cordova-plugin-device" spec="~2.0.2" />
 </widget>
-

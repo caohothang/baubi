@@ -1,69 +1,77 @@
 {
-    "cordova-plugin-whitelist": {
-        "source": {
-            "type": "registry",
-            "id": "cordova-plugin-whitelist@1.2.2"
-        },
-        "is_top_level": true,
-        "variables": {}
+  "cordova-plugin-whitelist": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-whitelist@1.2.2"
     },
-    "cordova-plugin-camera": {
-        "source": {
-            "type": "registry",
-            "id": "cordova-plugin-camera@2.4.1"
-        },
-        "is_top_level": true,
-        "variables": {}
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-camera": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-camera@2.4.1"
     },
-    "cordova-plugin-compat": {
-        "source": {
-            "type": "registry",
-            "id": "cordova-plugin-compat"
-        },
-        "is_top_level": false,
-        "variables": {}
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-compat": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-compat"
     },
-    "cordova-plugin-x-socialsharing": {
-        "source": {
-            "type": "registry",
-            "id": "cordova-plugin-x-socialsharing"
-        },
-        "is_top_level": true,
-        "variables": {}
+    "is_top_level": false,
+    "variables": {}
+  },
+  "cordova-plugin-x-socialsharing": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-x-socialsharing@^5.4.0"
     },
-    "es6-promise-plugin": {
-        "source": {
-            "type": "registry",
-            "id": "es6-promise-plugin@^4.1.0"
-        },
-        "is_top_level": false,
-        "variables": {}
+    "is_top_level": true,
+    "variables": {}
+  },
+  "es6-promise-plugin": {
+    "source": {
+      "type": "registry",
+      "id": "es6-promise-plugin@^4.1.0"
     },
-    "phonegap-facebook-plugin": {
-        "source": {
-            "type": "registry",
-            "id": "phonegap-facebook-plugin"
-        },
-        "is_top_level": true,
-        "variables": {}
+    "is_top_level": false,
+    "variables": {}
+  },
+  "phonegap-facebook-plugin": {
+    "source": {
+      "type": "registry",
+      "id": "phonegap-facebook-plugin"
     },
-    "cordova-plugin-facebook4": {
-        "source": {
-            "type": "registry",
-            "id": "cordova-plugin-facebook4"
-        },
-        "is_top_level": true,
-        "variables": {
-            "APP_ID": "1125067330874610",
-            "APP_NAME": "demo"
-        }
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-inappbrowser": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-inappbrowser@^3.0.0"
     },
-    "cordova-plugin-inappbrowser": {
-        "source": {
-            "type": "registry",
-            "id": "cordova-plugin-inappbrowser@^3.0.0"
-        },
-        "is_top_level": true,
-        "variables": {}
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-device": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-device@~2.0.2"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-facebook4": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-facebook4"
+    },
+    "is_top_level": true,
+    "variables": {
+      "APP_ID": "1125067330874610",
+      "APP_NAME": "bibau"
     }
+  }
 }
