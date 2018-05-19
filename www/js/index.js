@@ -1,5 +1,5 @@
 ﻿//create our angularjs app
-var bibauapp = angular.module('bibauapp', ['ngRoute', 'ngTouch', 'ngCookies', 'ngDialog', 'socialLogin', 'angularLazyImg']);
+var bibauapp = angular.module('bibauapp', ['ngRoute', 'ngTouch', 'ngCookies', 'ngDialog', 'angularLazyImg']);
 bibauapp.config(function(socialProvider, lazyImgConfigProvider){
 	//socialProvider.setGoogleKey("YOUR GOOGLE CLIENT ID");
   //socialProvider.setLinkedInKey("YOUR LINKEDIN CLIENT ID");
