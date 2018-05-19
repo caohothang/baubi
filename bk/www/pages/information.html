@@ -1,0 +1,92 @@
+﻿<div class="row box-content" style="height:20px;width:100%;position: fixed;top: 0;background: #fff;z-index: 1000;">
+
+</div>
+<div class="row box-content" style="padding-top:20px;">
+    <div class="col-xl-12" style="text-align:center;margin-top: 20px;margin-bottom: 25px;">
+        <img src="img/logo.gif" style="height: 50px;">
+    </div>
+</div>
+<div class="box-content" style="position: relative;
+    margin: 2px auto;
+    text-align: center;
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    vertical-align: middle;
+    padding-top: 5px;
+    padding-bottom: 5px;background-color: #b60001;margin-right: -15px;
+    margin-left: -15px;">
+    <div style="display: inline-block;padding: 3px;white-space: normal;text-align: center;padding-right:10px;font-weight: bold;color: #fff;font-family:Arial, Helvetica, sans-serif;">Thông tin cá nhân</div>
+</div>
+<div class="divcontain-nhomsanpham box-content">
+    <div class="row" style="margin:0;">
+        <div class="col-xl-12" style="margin-top: 30px;">
+            <div class="form-group" style="text-align:center;">
+                <img ng-src="{{picture}}" style="max-width:100px;" />
+                <br />
+                <br />
+                <button camera ng-click='changePicture()'>Thay ảnh</button>
+
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Danh xưng</label>
+                <select class="form-control nguyeninput" id="dropDownId">
+                    <option value="Anh" ng-selected="globals.currentUser.gender=='Anh'">Anh</option>
+                    <option value="Chị" ng-selected="globals.currentUser.gender=='Chị'">Chị</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Họ tên</label>
+                <input type="text" class="form-control nguyeninput" ng-model="globals.currentUser.fullname" placeholder="Họ tên">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Điện thoại</label>
+                <input type="text" class="form-control nguyeninput" ng-model="globals.currentUser.phone" placeholder="Điện thoại">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Email</label>
+                <input type="text" class="form-control nguyeninput" ng-model="globals.currentUser.email" placeholder="Email">
+            </div>
+
+        </div>
+    </div>
+    <div class="row" style="text-align:center;">
+        <button type="button" ng-click="updateInfo()" class="btn btn-default" style="border-radius: 4px;border: none;padding: 8px;line-height: 100%;color: #fff;font-weight: 600;background-color:#e1342d;">CẬP NHẬT</button>
+
+    </div>
+</div>
+<div class="row div-bottom box-content" style="position: fixed;bottom: 0;background: #e2332e;width: 100%;">
+    <div class="col-xs-3" style="text-align:center;padding: 0;width: 20%;padding-top: 5px;">
+        <img src="images/logoicon.png">
+        <div style="width:100%;">
+            <a style="color:#fff;font-family:Arial, Helvetica, sans-serif;font-size:13px;">Trang Chủ</a>
+        </div>
+    </div>
+    <div class="col-xs-3" style="text-align:center;padding: 0;width: 20%;padding-top: 5px;">
+        <a href="#/nhomsanpham">
+            <img src="images/iconsanpham.png" style="padding: 7px 0;">
+            <div style="width:100%;">
+                <span href="#/nhomsanpham" style="color:#fff;font-family:Arial, Helvetica, sans-serif;font-size:13px;">Sản Phẩm</span>
+            </div>
+        </a>
+    </div>
+
+    <div class="col-xs-3" style="text-align:center;padding: 0;width: 20%;padding-top: 5px;">
+        <a href="#/tintuc">
+            <img src="images/icontintuc.png" style="padding: 4px 0 6px 0;">
+            <div style="width:100%;">
+                <span style="color:#fff;font-family:Arial, Helvetica, sans-serif;font-size:13px;">Tin Tức</span>
+            </div>
+        </a>
+    </div>
+    <div class="search-san-pham"></div>
+    <div class="col-xs-3" style="text-align:center;padding: 0;width: 20%;padding-top: 5px;background-color:#b60001;">
+        <a href="#/account">
+            <i class="fa fa-user-circle-o" aria-hidden="true" style="color: #fff;font-size: 26px;padding: 4px 0 6px 0;"></i>
+            <div style="width:100%;">
+                <span style="color:#fff;font-family:Arial, Helvetica, sans-serif;font-size:13px;">Tài Khoản</span>
+            </div>
+        </a>
+    </div>
+
+</div>

@@ -1,5 +1,4 @@
-﻿//create our angularjs app
-var bibauapp = angular.module('bibauapp', ['ngRoute', 'ngTouch', 'ngCookies', 'ngDialog', 'angularLazyImg', 'ngCordovaOauth']);
+﻿var bibauapp = angular.module('bibauapp', ['ngRoute', 'ngTouch', 'ngCookies', 'ngDialog', 'angularLazyImg', 'ngCordovaOauth']);
 bibauapp.config(function(lazyImgConfigProvider){
 	//socialProvider.setGoogleKey("YOUR GOOGLE CLIENT ID");
   //socialProvider.setLinkedInKey("YOUR LINKEDIN CLIENT ID");
@@ -148,7 +147,15 @@ bibauapp.controller('loginController', ['$scope', '$location', '$timeout', '$htt
         $rootScope.globals = $cookies.getObject('globals');
         $location.path('nhomsanpham/');
     }
+$http({
+        method: 'POST',
+        url: 'http://test.toppion.com/api/checkuuid',
+        params: { uuid: device.uuid }
+    }).then(function (data) {
 
+    }, function (error) {
+
+    });
     $scope.login = function () {
         $scope.facebookLogin($cordovaOauth, $http);
     };
@@ -251,8 +258,54 @@ bibauapp.controller('loginController', ['$scope', '$location', '$timeout', '$htt
 
     //we add the fadeIn animation with 0.1 seconds, for more information animate css, please google animate.css in your browser, there are varieties of animations available.
     animateMe("#box-content", "fadeIn", 0.1);
-}]);
 
+    $scope.getsmsPass = function () {
+        ngDialog.open({
+            template: 'pages/phoneTml.html',
+            controller: 'phoneController'
+        });
+
+        //var message = "Mật khẩu mới của Quý khách là 12345. Vui lòng đăng nhập lại để thay đổi mật khẩu.";
+
+        //$http({
+        //    method: 'GET',
+        //    url: 'http://rest.esms.vn/MainService.svc/json/SendMultipleMessage_V4_get?Phone='++'&Content=' + message+'&ApiKey=9D1BBFDE8A55A7D08E89ED013648FB&SecretKey=8528FDCD572CA608295B2E6E3DB8D5&SmsType=8'
+        //}).then(function (data) {
+
+        //}, function (error) {
+
+        //});
+
+    };
+}]);
+bibauapp.controller('phoneController', function ($scope, $location, $timeout, $http, $sce, $cookies, $rootScope, ngDialog) {
+    $scope.checkChange = true;
+    $scope.smsPass = function () {
+        $http({
+            method: 'POST',
+            url: 'http://test.toppion.com/api/smspass',
+            params: { phone: $scope.phone }
+        }).then(function (data) {
+            //console.log(data.data);
+            var message = "Mat khau moi vua Quy khach tai Bi Bau app la " + data.data + ". Vui long dang nhap lai de thay doi mat khau moi.";
+
+            $http({
+                method: 'GET',
+                url: 'http://rest.esms.vn/MainService.svc/json/SendMultipleMessage_V4_get?Phone=' + $scope.phone + '&Content=' + message + '&ApiKey=9D1BBFDE8A55A7D08E89ED013648FB&SecretKey=8528FDCD572CA608295B2E6E3DB8D5&SmsType=8'
+            }).then(function (data) {
+                $scope.error = "Mật khẩu mới đã được gửi đến Điện thoại của Quý khách. Vui lòng đăng nhập lại để thay đổi.";
+                $scope.checkChange = false;
+            }, function (error) {
+
+            });
+
+
+        }, function (error) {
+
+        });
+    };
+
+});
 bibauapp.controller('nhomsanphamController', function ($scope, $location, $timeout, $http, $sce) {
   $scope.loading = true;
     $http({
@@ -473,6 +526,9 @@ bibauapp.controller('accountController', function ($scope, $location, $timeout, 
         $rootScope.globals == null;
         $location.path('nhomsanpham');
     };
+    $scope.myPoint = function () {
+        $location.path('point');
+    };
 
 });
 
@@ -663,8 +719,13 @@ bibauapp.controller('informationController', function ($scope, $location, $timeo
             }
         }
     };
+    
     $scope.updateInfo = function () {
-
+        
+        if (!$rootScope.globals.currentUser.phone) {
+            $scope.updatePhoneModal();
+            return;
+        }
         $http({
             method: 'POST',
             url: 'http://test.toppion.com/api/updateinfo',
@@ -687,8 +748,7 @@ bibauapp.controller('informationController', function ($scope, $location, $timeo
                 $scope.error = "Cập nhật thông tin thành công";
                 ngDialog.open({ template: 'pages/alertTml.html', className: 'ngdialog-theme-default', scope: $scope });
             }
-            else {
-            }
+            
         }, function (error) {
 
         });
@@ -734,7 +794,7 @@ bibauapp.controller('registerController', ['$scope', '$location', '$timeout', '$
         $http({
             method: 'GET',
             url: 'http://test.toppion.com/api/register',
-            params: { uuid: '1234567', username: $scope.username, pass: $scope.password }
+            params: { uuid: device.uuid, username: $scope.username, pass: $scope.password }
         }).then(function (data) {
             if (data.data !== null) {
                 SetCredentialsReg(data.data, $scope.username, $scope.password);
@@ -1214,3 +1274,112 @@ bibauapp.directive(
 
   }
 );
+
+
+bibauapp.controller('pointController', function ($scope, $location, $timeout, $http, $sce, $cookies, $rootScope, ngDialog) {
+    $scope.checkLogin = false;
+    if ($cookies.get('globals') != null) {
+        $scope.checkLogin = true;
+        if ($rootScope.globals == null) {
+            $rootScope.globals = $cookies.getObject('globals');
+        }
+    }
+    else {
+        $location.path('login');
+    }
+
+
+    $http({
+        method: 'GET',
+        url: 'http://test.toppion.com/api/userspoint',
+        params: { id: $rootScope.globals.currentUser.userid }
+    }).then(function (data) {
+        $scope.danhsachsanpham = data.data;
+        console.log($scope.danhsachsanpham);
+    }, function (error) {
+
+    });
+
+
+
+    $('.divcontain-nhomsanpham').css('margin-bottom', ($('.div-bottom').height()) + 'px');
+
+    function animateMe(myObject, animateType, duration) {
+        $(myObject).addClass("animated " + animateType).css("animation-delay", duration + "s");
+    }
+
+    //we add the fadeIn animation with 0.1 seconds, for more information animate css, please google animate.css in your browser, there are varieties of animations available.
+    animateMe(".box-content", "fadeIn", 0.1);
+
+
+
+});
+
+
+bibauapp.controller('searchTmlController', function ($scope, $location, $timeout, $http, $sce, $cookies, $rootScope, ngDialog) {
+    $scope.searchKey = function () {
+        $rootScope.keysearch = $scope.key;
+        ngDialog.close();
+        $location.path('search');
+    };
+
+});
+
+bibauapp.controller('searchController', function ($scope, $location, $timeout, $http, $sce, $cookies, $rootScope, ngDialog) {
+
+    $scope.checkLogin = false;
+    if ($cookies.get('globals') != null) {
+        $scope.checkLogin = true;
+        if ($rootScope.globals == null) {
+            $rootScope.globals = $cookies.getObject('globals');
+        }
+    }
+
+
+    $http({
+        method: 'GET',
+        url: 'http://test.toppion.com/api/search',
+        params: { key: $rootScope.keysearch, userid: $rootScope.globals.currentUser.userid }
+    }).then(function (data) {
+        $scope.danhsachsanpham = data.data;
+    }, function (error) {
+
+    });
+
+    $('.divcontain-nhomsanpham').css('margin-bottom', ($('.div-bottom').height()) + 'px');
+    $scope.get_pre = function (x) {
+        return $sce.trustAsHtml(x);
+    };
+
+    $scope.onSwipeRight = function () {
+        $location.path('account');
+    }
+
+    $scope.directChiTietSanPham = function (id) {
+        $location.path('chitietsanphamwishlist/' + id);
+    };
+    function animateMe(myObject, animateType, duration) {
+        $(myObject).addClass("animated " + animateType).css("animation-delay", duration + "s");
+    }
+
+    //we add the fadeIn animation with 0.1 seconds, for more information animate css, please google animate.css in your browser, there are varieties of animations available.
+    animateMe(".box-content", "fadeIn", 0.1);
+
+}).directive("searchSanPham", function () {
+    return {
+        restrict: "C",
+        controller: "searchModal",
+        templateUrl: 'pages/searchmodal.html',
+        replace: true
+    }
+});
+
+
+bibauapp.controller('searchModal', function ($scope, $location, $timeout, $http, $sce, $cookies, $rootScope, ngDialog) {
+    $scope.openModal = function () {
+        ngDialog.open({
+            template: 'pages/searchTml.html',
+            controller: 'searchTmlController'
+        });
+    }
+});

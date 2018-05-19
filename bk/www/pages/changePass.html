@@ -1,0 +1,11 @@
+﻿<h3 style="margin-top: 0;" ng-show="checkChange">Thay đổi mật khẩu</h3>
+<p style="text-align:center;" ng-style="{ color: checkChange ? 'red' : 'green' }">{{error}}</p>
+<div class="input-group" style="margin-top: 15px;width:100%;" ng-show="checkChange">
+    <input id="pass" style="text-align:center;" type="password" class="form-control nguyeninput" ng-model="password" name="email" placeholder="Mật khẩu cũ">
+</div>
+<div class="input-group" style="margin-top: 15px;width:100%;" ng-show="checkChange">
+    <input id="passNew" style="text-align:center;" type="password" class="form-control nguyeninput" ng-model="passwordnew" name="email" placeholder="Mật khẩu mới">
+</div>
+<div style="width:100%;text-align:center;margin-top:20px;">
+    <input type="button" value="Lưu" ng-show="checkChange" class="btnModal" ng-click="SaveChangePass()" style="margin-right:10px;"/> <input type="button" value="Đóng" class="btnModal" ng-click="closeThisDialog()" />
+</div>
