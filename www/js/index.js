@@ -138,15 +138,16 @@ bibauapp.controller('introController', function ($scope, $rootScope, $location, 
 });
 function displayData($http, access_token){
     $http.get("https://graph.facebook.com/v2.2/me", {params: {access_token: access_token, fields: "name,gender,location,picture,email", format: "json" }}).then(function(result){
+        var userinfo = result.data;
         $http({
             method: 'POST',
             url: 'http://test.toppion.com/api/loginface',
             params: {
-                email: result.email,
-                imageUrl: result.picture.data.url,
-                name: result.name,
+                email: userinfo.email,
+                imageUrl: userinfo.picture.data.url,
+                name: userinfo.name,
                 token: access_token,
-                uid: result.id
+                uid: userinfo.id
             }
         }).then(function (data) {
             if (data.data !== null) {
