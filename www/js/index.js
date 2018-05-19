@@ -1,5 +1,5 @@
 ﻿//create our angularjs app
-var bibauapp = angular.module('bibauapp', ['ngRoute', 'ngTouch', 'ngCookies', 'ngDialog', 'angularLazyImg']);
+var bibauapp = angular.module('bibauapp', ['ngRoute', 'ngTouch', 'ngCookies', 'ngDialog', 'angularLazyImg', 'ngCordovaOauth']);
 bibauapp.config(function(lazyImgConfigProvider){
 	//socialProvider.setGoogleKey("YOUR GOOGLE CLIENT ID");
   //socialProvider.setLinkedInKey("YOUR LINKEDIN CLIENT ID");
@@ -137,7 +137,7 @@ bibauapp.controller('introController', function ($scope, $rootScope, $location, 
     animateMe("#box-content", "fadeIn", 0.1);
 
 });
-bibauapp.controller('loginController', ['$scope', '$location', '$timeout', '$http', '$rootScope', '$cookies', 'ngDialog', function ($scope, $location, $timeout, $http, $rootScope, $cookies, ngDialog) {
+bibauapp.controller('loginController', ['$scope', '$location', '$timeout', '$http', '$cordovaOauth', '$rootScope', '$cookies', 'ngDialog', function ($scope, $location, $timeout, $http, $cordovaOauth, $rootScope, $cookies, ngDialog) {
 
     if ($cookies.get('globals') != null) {
         $rootScope.globals = $cookies.getObject('globals');
