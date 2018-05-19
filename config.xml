@@ -102,6 +102,6 @@
     <plugin name="cordova-plugin-facebook4" spec="^2.1.0">
         <variable name="APP_ID" value="1125067330874610" />
         <variable name="APP_NAME" value="bibau" />
-        <variable name="ANDROID_SDK_VERSION" value="4.+" />
+        <variable name="ANDROID_SDK_VERSION" value="4.25.0" />
     </plugin>
 </widget>
