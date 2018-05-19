@@ -101,10 +101,8 @@
     <engine name="windows" spec="4.4.2" />
     <engine name="android" spec="^6.3.0" />
     <plugin name="cordova-plugin-facebook4" spec="^2.1.0">
-        <config-file parent="/resources" target="./res/values/strings.xml">
-          <string name="fb_app_id">1125067330874610</string>
-          <string name="fb_app_name">bibau</string>
-        </config-file>
-
+        <variable name="APP_ID" value="1125067330874610" />
+        <variable name="APP_NAME" value="bibau" />
+        <variable name="ANDROID_SDK_VERSION" value="4+" />
     </plugin>
 </widget>
