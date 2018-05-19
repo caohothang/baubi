@@ -1,0 +1,57 @@
+﻿<div ng-show="loading" class="LoadingParent">
+    <div class="LoadingOver"></div>
+    <div class="LoadingContent"><i class="fa fa-spinner fa-spin"></i><br />Đang tải...</div>
+</div>
+﻿<div class="row box-content" style="height:20px;width:100%;position: fixed;top: 0;background: #fff;z-index: 1000;">
+
+</div>
+<div class="row box-content" style="padding-top:20px;">
+    <div class="col-xl-12" style="text-align:center;margin-top: 20px;margin-bottom: 25px;">
+        <img src="img/logo.gif" style="height: 50px;">
+    </div>
+</div>
+<div class="divcontain-nhomsanpham box-content">
+
+
+    <div class="row" ng-repeat="nhom in danhsachtintuc" style="border-top: 1px solid #d6d2d4;">
+        <div ng-click="directChiTietTinTuc(nhom.ID)" class="col-xl-12" style="padding:0;position:relative;">
+            <img style="width:100%;" ng-src="{{nhom.Hinh}}">
+
+            <div class="title-tintuc">
+                {{nhom.Ten}}
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="row div-bottom box-content" style="position: fixed;bottom: 0;background: #e2332e;width: 100%;">
+    <div class="col-xs-3" style="text-align:center;padding: 0;width: 20%;padding-top: 5px;">
+        <img src="images/logoicon.png">
+        <div style="width:100%;">
+            <a style="color:#fff;font-family:Arial, Helvetica, sans-serif;font-size:13px;">Trang Chủ</a>
+        </div>
+    </div>
+    <div class="col-xs-3" style="text-align:center;padding: 0;width: 20%;padding-top: 5px;">
+        <a href="#/nhomsanpham">
+            <img src="images/iconsanpham.png" style="padding: 7px 0;">
+            <div style="width:100%;">
+                <span href="#/nhomsanpham" style="color:#fff;font-family:Arial, Helvetica, sans-serif;font-size:13px;">Sản Phẩm</span>
+            </div>
+        </a>
+    </div>
+    <div class="col-xs-3" style="text-align:center;padding: 0;width: 20%;padding-top: 5px;background-color:#b60001;">
+        <img src="images/icontintuc.png" style="padding: 4px 0 6px 0;">
+        <div style="width:100%;">
+            <a style="color:#fff;font-family:Arial, Helvetica, sans-serif;font-size:13px;">Tin Tức</a>
+        </div>
+    </div>
+    <div class="search-san-pham"></div>
+    <div class="col-xs-3" style="text-align:center;padding: 0;width: 20%;padding-top: 5px;">
+        <a href="#/account">
+            <i class="fa fa-user-circle-o" aria-hidden="true" style="color: #fff;font-size: 26px;padding: 4px 0 6px 0;"></i>
+            <div style="width:100%;">
+                <span style="color:#fff;font-family:Arial, Helvetica, sans-serif;font-size:13px;">Tài Khoản</span>
+            </div>
+        </a>
+    </div>
+</div>

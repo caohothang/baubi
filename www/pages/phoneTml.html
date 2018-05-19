@@ -1,0 +1,9 @@
+﻿<h3 style="margin-top: 0;" ng-show="checkChange">Số điện thoại</h3>
+<p style="text-align:center;color:red;">{{error}}</p>
+<div class="input-group" style="margin-top: 15px;width:100%;" ng-show="checkChange">
+    <input id="phone" style="text-align:center;" type="text" class="form-control nguyeninput" name="phone" ng-model="phone" placeholder="Số điện thoại">
+</div>
+ 
+<div style="width:100%;text-align:center;margin-top:20px;" >
+    <input type="button" value="Gửi" class="btnModal" ng-show="checkChange" ng-click="smsPass()" style="margin-right:10px;"/><input type="button" value="Đóng" class="btnModal" ng-click="closeThisDialog()" />
+</div>

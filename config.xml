@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <widget xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:vs="http://schemas.microsoft.com/appx/2014/htmlapps" id="io.cordova.myapp5663f2" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" defaultlocale="vi-VN">
   <name>Bí Bầu</name>
   <description>A blank project that uses Apache Cordova to help you build an app that targets multiple mobile platforms: Android, iOS, and the Windows Universal Platform.</description>
@@ -110,9 +110,9 @@
   <preference name="BackgroundColor" value="0xffffff00" />
   <plugin name="cordova-plugin-camera" spec="~2.4.1" />
   <plugin name="cordova-plugin-facebook4" spec="^2.1.0">
-  
-      <variable name="APP_ID" value="1125067330874610" />
-      <variable name="APP_NAME" value="demo" />
-      <variable name="ANDROID_SDK_VERSION" value="4.+" />
+    <variable name="APP_ID" value="1125067330874610" />
+    <variable name="APP_NAME" value="demo" />
+    <variable name="ANDROID_SDK_VERSION" value="4.+" />
   </plugin>
+  <plugin name="cordova-plugin-device" spec="~2.0.2" />
 </widget>
