@@ -138,7 +138,25 @@ bibauapp.controller('introController', function ($scope, $rootScope, $location, 
 });
 function displayData($http, access_token){
     $http.get("https://graph.facebook.com/v2.2/me", {params: {access_token: access_token, fields: "name,gender,location,picture,email", format: "json" }}).then(function(result){
-        console.log(result);
+        $http({
+            method: 'POST',
+            url: 'http://test.toppion.com/api/loginface',
+            params: {
+                email: result.email,
+                imageUrl: result.picture.data.url,
+                name: result.name,
+                token: access_token,
+                uid: result.id
+            }
+        }).then(function (data) {
+            if (data.data !== null) {
+                SetCredentials(data.data, $scope.username, $scope.password);
+                $location.path('nhomsanpham');
+            }
+        }, function (error) {
+
+        });
+
     });
 }
 bibauapp.controller('loginController', ['$scope', '$location', '$timeout', '$http', '$cordovaOauth', '$rootScope', '$cookies', 'ngDialog', function ($scope, $location, $timeout, $http, $cordovaOauth, $rootScope, $cookies, ngDialog) {
