@@ -1,4 +1,8 @@
-﻿# .gitignore
+# .gitignore
+node_modules
+bower_components
+assets/vendor
+plugins
 [Pp]lugins/android.json
 [Pp]lugins/windows.json
 [Pp]lugins/wp8.json
