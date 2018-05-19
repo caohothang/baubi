@@ -45,7 +45,10 @@
       "id": "phonegap-facebook-plugin@^0.12.0"
     },
     "is_top_level": true,
-    "variables": {}
+    "variables": {
+      "APP_ID": "1125067330874610",
+      "APP_NAME": "bibau"
+    }
   },
   "cordova-plugin-inappbrowser": {
     "source": {
@@ -62,16 +65,5 @@
     },
     "is_top_level": true,
     "variables": {}
-  },
-  "cordova-plugin-facebook4": {
-    "source": {
-      "type": "registry",
-      "id": "cordova-plugin-facebook4@^2.1.0"
-    },
-    "is_top_level": true,
-    "variables": {
-      "APP_ID": "1125067330874610",
-      "APP_NAME": "bibau"
-    }
   }
 }
