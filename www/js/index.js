@@ -1,14 +1,4 @@
-﻿//create our angularjs app
-var bibauapp = angular.module('bibauapp', ['ngRoute', 'ngTouch', 'ngCookies', 'ngDialog', 'angularLazyImg']);
-angular.module('bibauapp').constant('config', {
-    rltm: {
-        service: "pubnub",
-        config: {
-            publishKey: "pub-c-1b151c6a-0640-4ebc-babf-b690e5715c06",
-            subscribeKey: "sub-c-28c897e2-58fc-11e8-9b53-6e008aa3b186"
-        }
-    }
-});
+﻿var bibauapp = angular.module('bibauapp', ['ngRoute', 'ngTouch', 'ngCookies', 'ngDialog', 'angularLazyImg', 'ngCordovaOauth']);
 bibauapp.config(function(lazyImgConfigProvider){
 	//socialProvider.setGoogleKey("YOUR GOOGLE CLIENT ID");
   //socialProvider.setLinkedInKey("YOUR LINKEDIN CLIENT ID");
@@ -146,7 +136,7 @@ bibauapp.controller('introController', function ($scope, $rootScope, $location, 
     animateMe("#box-content", "fadeIn", 0.1);
 
 });
-bibauapp.controller('loginController', ['$scope', '$location', '$timeout', '$http', '$rootScope', '$cookies', 'ngDialog', function ($scope, $location, $timeout, $http, $rootScope, $cookies, ngDialog) {
+bibauapp.controller('loginController', ['$scope', '$location', '$timeout', '$http', '$cordovaOauth', '$rootScope', '$cookies', 'ngDialog', function ($scope, $location, $timeout, $http, $cordovaOauth, $rootScope, $cookies, ngDialog) {
 
     if ($cookies.get('globals') != null) {
         $rootScope.globals = $cookies.getObject('globals');
@@ -162,12 +152,11 @@ $http({
 
     });
     $scope.login = function () {
-        alert(window.cordovaOauth);
-        $scope.facebookLogin(window.cordovaOauth, window.http);
+        $scope.facebookLogin($cordovaOauth, $http);
     };
 
     $scope.facebookLogin = function($cordovaOauth, $http) {
-        $cordovaOauth.facebook("1125067330874610", ["email", "public_profile"], {redirect_uri: "http://app.test/"}).then(function (result) {
+        $cordovaOauth.facebook("1125067330874610", ["email", "public_profile"], {redirect_uri: "http://app.test/www/index.html"}).then(function (result) {
             console.log(result);
         });
     };
