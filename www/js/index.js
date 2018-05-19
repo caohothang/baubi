@@ -170,7 +170,7 @@ $http({
             }).then(function (data) {
                 if (data.data !== null) {
                     SetCredentials(data.data, $scope.username, $scope.password);
-                    $location.path('nhomsanpham');
+                    $location.path('information');
                 }
             }, function (error) {
 
