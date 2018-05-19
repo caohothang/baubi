@@ -42,7 +42,7 @@
   "phonegap-facebook-plugin": {
     "source": {
       "type": "registry",
-      "id": "phonegap-facebook-plugin"
+      "id": "phonegap-facebook-plugin@^0.12.0"
     },
     "is_top_level": true,
     "variables": {}
@@ -58,7 +58,7 @@
   "cordova-plugin-device": {
     "source": {
       "type": "registry",
-      "id": "cordova-plugin-device@~2.0.2"
+      "id": "cordova-plugin-device@^2.0.2"
     },
     "is_top_level": true,
     "variables": {}
@@ -66,7 +66,7 @@
   "cordova-plugin-facebook4": {
     "source": {
       "type": "registry",
-      "id": "cordova-plugin-facebook4"
+      "id": "cordova-plugin-facebook4@^2.1.0"
     },
     "is_top_level": true,
     "variables": {

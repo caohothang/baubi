@@ -12,7 +12,6 @@
     <access origin="http://test.toppion.com" />
     <preference name="SplashScreen" value="none" />
     <preference name="windows-target-version" value="10.0" />
-    <plugin name="cordova-plugin-whitelist" spec="1.2.2" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />
@@ -95,13 +94,15 @@
     <preference name="Fullscreen" value="False" />
     <preference name="DisallowOverscroll" value="true" />
     <preference name="BackgroundColor" value="0xffffff00" />
+    <plugin name="cordova-plugin-whitelist" spec="~1.2.2" />
     <plugin name="cordova-plugin-camera" spec="~2.4.1" />
+    <plugin name="cordova-plugin-x-socialsharing" spec="^5.4.0" />
+    <plugin name="phonegap-facebook-plugin" />
     <plugin name="cordova-plugin-inappbrowser" spec="^3.0.0" />
     <plugin name="cordova-plugin-device" spec="~2.0.2" />
-    <engine name="android" spec="~5.2.1" />
+    <engine name="android" spec="~7.0.0" />
     <plugin name="cordova-plugin-facebook4" spec="^2.1.0">
         <variable name="APP_ID" value="1125067330874610" />
         <variable name="APP_NAME" value="bibau" />
-        <variable name="ANDROID_SDK_VERSION" value="4.25.0" />
     </plugin>
 </widget>
