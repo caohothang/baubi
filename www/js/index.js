@@ -255,8 +255,25 @@ $http({
     };
 }]);
 bibauapp.controller('phoneController', function ($scope, $location, $timeout, $http, $sce, $cookies, $rootScope, ngDialog) {
+
+   
     $scope.checkChange = true;
+
+    function validatePhone(phone) { //Validates the phone number
+        var phoneRegex = /^[0-9-+]+$/;
+        return phoneRegex.test(phone);
+    }
     $scope.smsPass = function () {
+        if ($scope.phone == null || $scope.phone == '') {
+            $scope.error = "Vui lòng nhập số điện thoại";
+            return;
+        }
+        if (!validatePhone($scope.phone))
+        {
+            $scope.error = "Số điện thoại không đúng. Vui lòng nhập lại.";
+            return;
+        }
+
         $http({
             method: 'POST',
             url: 'http://test.toppion.com/api/smspass',
