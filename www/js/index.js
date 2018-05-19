@@ -359,7 +359,7 @@ bibauapp.controller('nhomsanphamController', function ($scope, $location, $timeo
     animateMe(".box-content", "fadeIn", 0.1);
 });
 bibauapp.controller('sanphamController', function ($scope, $location, $timeout, $http, $sce, $routeParams, $cookies, $rootScope) {
-
+    $scope.loading = true;
     var id = $routeParams.id;
     $scope.checkLogin = false;
     var userid = 0;
@@ -378,6 +378,9 @@ bibauapp.controller('sanphamController', function ($scope, $location, $timeout, 
     }).then(function (data) {
         $scope.tennhom = data.data.Ten;
         $scope.danhsachsanpham = data.data.DanhSachSanPham;
+        $timeout(function () {
+            $scope.loading = false;
+        }, 500)
     }, function (error) {
 
     });
@@ -475,6 +478,7 @@ bibauapp.controller('tintucController', function ($scope, $location, $timeout, $
 
 
 bibauapp.controller('chitiettintucController', function ($scope, $location, $timeout, $http, $sce, $routeParams) {
+    
     var id = $routeParams.id;
     $http({
         method: 'GET',
@@ -482,6 +486,7 @@ bibauapp.controller('chitiettintucController', function ($scope, $location, $tim
     }).then(function (data) {
         $scope.ten = data.data.Ten;
         $scope.noidung = data.data.NoiDung;
+
     }, function (error) {
 
     });
@@ -601,7 +606,7 @@ bibauapp.controller('changePassController', function ($scope, $location, $timeou
 });
 
 bibauapp.controller('sanphamwishlistController', function ($scope, $location, $timeout, $http, $sce, $routeParams, $cookies, $rootScope) {
-
+    $scope.loading = true;
     var id = $routeParams.id;
     $scope.checkLogin = false;
     if ($cookies.get('globals') != null) {
@@ -619,6 +624,9 @@ bibauapp.controller('sanphamwishlistController', function ($scope, $location, $t
     }).then(function (data) {
         $scope.tennhom = "Sản phẩm yêu thích";
         $scope.danhsachsanpham = data.data;
+        $timeout(function () {
+            $scope.loading = false;
+        }, 500);
     }, function (error) {
 
     });
@@ -643,7 +651,22 @@ bibauapp.controller('sanphamwishlistController', function ($scope, $location, $t
     animateMe(".box-content", "fadeIn", 0.1);
 
 
+    $scope.toggleWishList = function (id) {
 
+        $http({
+            method: 'POST',
+            url: 'http://test.toppion.com/api/wishlist',
+            params: { userid: $rootScope.globals.currentUser.userid, id: id }
+        }).then(function (data) {
+            if (data.data) {
+                $('.wishlist-' + id).toggleClass('clickheart');
+            }
+            else {
+            }
+        }, function (error) {
+
+        });
+    }
 });
 
 bibauapp.controller('chitietsanphamwishlistController', function ($scope, $location, $timeout, $http, $sce, $routeParams) {
@@ -1373,7 +1396,7 @@ bibauapp.controller('searchController', function ($scope, $location, $timeout, $
     }
 
     $scope.directChiTietSanPham = function (id) {
-        $location.path('chitietsanphamwishlist/' + id);
+        $location.path('chitietsanphamsearch/' + id);
     };
     function animateMe(myObject, animateType, duration) {
         $(myObject).addClass("animated " + animateType).css("animation-delay", duration + "s");
@@ -1381,6 +1404,23 @@ bibauapp.controller('searchController', function ($scope, $location, $timeout, $
 
     //we add the fadeIn animation with 0.1 seconds, for more information animate css, please google animate.css in your browser, there are varieties of animations available.
     animateMe(".box-content", "fadeIn", 0.1);
+
+    $scope.toggleWishList = function (id) {
+
+        $http({
+            method: 'POST',
+            url: 'http://test.toppion.com/api/wishlist',
+            params: { userid: $rootScope.globals.currentUser.userid, id: id }
+        }).then(function (data) {
+            if (data.data) {
+                $('.wishlist-' + id).toggleClass('clickheart');
+            }
+            else {
+            }
+        }, function (error) {
+
+        });
+    }
 
 }).directive("searchSanPham", function () {
     return {
@@ -1391,6 +1431,34 @@ bibauapp.controller('searchController', function ($scope, $location, $timeout, $
     }
 });
 
+
+bibauapp.controller('chitietsanphamsearchController', function ($scope, $location, $timeout, $http, $sce, $routeParams) {
+    var id = $routeParams.id;
+    $http({
+        method: 'GET',
+        url: 'http://test.toppion.com/api/sanpham/' + id + ''
+    }).then(function (data) {
+        $scope.idnhom = data.data.cID;
+        $scope.tennhom = data.data.Ten;
+        $scope.noidung = data.data.NoiDung;
+    }, function (error) {
+
+    });
+    $('.divcontain-nhomsanpham').css('margin-bottom', ($('.div-bottom').height()) + 'px');
+    $scope.get_pre = function (x) {
+        return $sce.trustAsHtml(x);
+    };
+
+    $scope.onSwipeRight = function (id) {
+        $location.path('search');
+    }
+    function animateMe(myObject, animateType, duration) {
+        $(myObject).addClass("animated " + animateType).css("animation-delay", duration + "s");
+    }
+
+    //we add the fadeIn animation with 0.1 seconds, for more information animate css, please google animate.css in your browser, there are varieties of animations available.
+    animateMe(".box-content", "fadeIn", 0.1);
+});
 
 bibauapp.controller('searchModal', function ($scope, $location, $timeout, $http, $sce, $cookies, $rootScope, ngDialog) {
     $scope.openModal = function () {

@@ -61,4 +61,8 @@ bibauapp.config(function ($routeProvider, $locationProvider) {
             templateUrl: 'pages/search.html',
             controller: 'searchController'
         })
+        .when('/chitietsanphamsearch/:id', {
+            templateUrl: 'pages/chitietsanphamsearch.html',
+            controller: 'chitietsanphamsearchController'
+        })
 });   
