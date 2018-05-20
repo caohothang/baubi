@@ -7,6 +7,7 @@
         "cordova-ios": "4.2.0",
         "cordova-plugin-camera": "~2.4.1",
         "cordova-plugin-device": "^2.0.2",
+        "cordova-plugin-facebook": "^0.2.2",
         "cordova-plugin-facebook4": "^2.1.0",
         "cordova-plugin-inappbrowser": "^3.0.0",
         "cordova-plugin-whitelist": "1.2.2",
@@ -25,6 +26,10 @@
                 "APP_ID": "1125067330874610",
                 "APP_NAME": "bibau",
                 "ANDROID_SDK_VERSION": "4.+"
+            },
+            "cordova-plugin-facebook": {
+                "FACEBOOK_DISPLAY_NAME": "bibau",
+                "FACEBOOK_APP_ID": "1125067330874610"
             }
         },
         "platforms": [

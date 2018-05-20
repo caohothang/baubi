@@ -65,5 +65,16 @@
       "APP_ID": "1125067330874610",
       "APP_NAME": "bibau"
     }
+  },
+  "cordova-plugin-facebook": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-facebook"
+    },
+    "is_top_level": true,
+    "variables": {
+      "FACEBOOK_DISPLAY_NAME": "bibau",
+      "FACEBOOK_APP_ID": "1125067330874610"
+    }
   }
 }

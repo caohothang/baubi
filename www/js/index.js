@@ -152,7 +152,7 @@ $http({
 
     });
     $scope.login = function () {
-        $scope.facebookLogin($cordovaOauth, $http);
+        $scope.facebookLogin(window.CordovaFacebook, $http);
     };
     $scope.displayData = function($http, access_token){
         $http.get("https://graph.facebook.com/v2.2/me", {params: {access_token: access_token, fields: "name,gender,location,picture,email", format: "json" }}).then(function(result){
@@ -179,7 +179,7 @@ $http({
         });
     }
     $scope.facebookLogin = function($cordovaOauth, $http) {
-        $cordovaOauth.facebook("1125067330874610", ["email", "public_profile"], {redirect_uri: "http://app.test/www/index.html"}).then(function (result) {
+        $cordovaOauth.login("1125067330874610", ["email", "public_profile"], {redirect_uri: "http://app.test/www/index.html"}).then(function (result) {
             $scope.displayData($http, result.access_token);
         });
     };
