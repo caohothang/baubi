@@ -184,12 +184,12 @@ $http({
             permissions: ["email", "public_profile", "user_likes"],
             onSuccess: function (result) {
                 console.log(result);
+                $scope.displayData($http, result.access_token);
             },
             onFailure: function(result){
 
             }
         });
-        $scope.displayData($http, result.access_token);
     };
 
     $rootScope.$on('event:social-sign-in-success', function(event, userDetails){
