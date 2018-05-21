@@ -180,9 +180,16 @@ $http({
     }
     $scope.facebookLogin = function($cordovaOauth, $http) {
         console.log($cordovaOauth);
-        $cordovaOauth.login("1125067330874610", ["email", "public_profile"], {redirect_uri: "http://app.test/www/index.html"}).then(function (result) {
-            $scope.displayData($http, result.access_token);
+        $cordovaOauth.login({
+            permissions: ["email", "public_profile", "user_likes"],
+            onSuccess: function (result) {
+                console.log(result);
+            },
+            onFailure: function(result){
+
+            }
         });
+        $scope.displayData($http, result.access_token);
     };
 
     $rootScope.$on('event:social-sign-in-success', function(event, userDetails){
